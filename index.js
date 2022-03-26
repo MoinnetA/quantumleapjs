@@ -169,6 +169,16 @@ class GestureHandler extends EventEmitter {
       this._client.send(JSON.stringify(message));
     }
   }
+
+  sendGestures(data){
+    let message = { type: 'recognize2d', data: data }
+    this._client.send(JSON.stringify(message));
+  }
+
+  addNewGesture(data, nameGesture){
+    let message = { type: 'addNewGesture2d', data: data, name: nameGesture }
+    this._client.send(JSON.stringify(message));
+  }
 }
 
 // Events
